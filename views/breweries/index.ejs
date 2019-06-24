@@ -1,0 +1,88 @@
+<% include ../partials/header %> 
+
+     <header class="jumbotron">
+         <div class="container">
+          
+             <h1><i class="fab fa-untappd"></i> Pursuit of Hoppiness!</h1>
+             <p>  Breweries from all over the United States</p>
+             <p>
+                <a class="btn btn-primary btn-lg" href="/breweries/new">Add New Brewery</a>
+             </p>
+              <p>
+              <form acttion="/breweries"method="GET"class="form-inline">
+              <div class="form-group">
+                <input type="text" name="search" placeholder="Brewery search...."class="form-contol">
+                <input type="submit" value="search" class="btn btn-secondary">
+              </div>           
+              </form>
+             </p>
+         </div>
+     </header>
+     
+   <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% breweries.forEach(function(brewery){ %>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="<%= brewery.image %>">
+                <div class="caption">
+                    <h4><%= brewery.name %></h4>
+                    <% if (brewery.rating === 0) { %>
+                    <em>No reviews yet.</em>
+                    <% } else { %>
+                    <span class="fa fa-beer checked"></span>
+                    <span class="fa fa-beer <% if (brewery.rating > 1.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-beer <% if (brewery.rating > 2.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-beer <% if (brewery.rating > 3.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-beer <% if (brewery.rating > 4.5) { %> checked <% } %>"></span>
+                    <% } %>
+                </div>
+                <p>
+                    <a href="/breweries/<%= brewery._id %>" class="btn btn-primary">More Info</a>
+                </p>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+  <nav aria-label="Page navigation">
+      <% if (pages && pages > 0) { %>
+        <ul class="pagination justify-content-center">
+            <% if (current == 1) { %>
+              <li class="page-item disabled"><a class="page-link">First</a></li>
+            <% } else { %>
+              <li class="page-item"><a class="page-link" href="/breweries<%if(search){%>?search=<%=search%><%}%>">First</a></li>
+            <% } %>
+            <% if (current == 1) { %>
+              <li class="page-item disabled"><a class="page-link">«</a></li>
+            <% } else { %>
+              <li class="page-item"><a class="page-link" href="/breweries?page=<%= Number(current) - 1 %><%if(search){%>&search=<%=search%><%}%>">«</a></li>
+            <% } %>
+            <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+              <% if (i !== 1) { %>
+                  <li class="page-item disabled"><a class="page-link">...</a></li>
+              <% } %>
+            <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+              <% if (i == current) { %>
+                  <li class="page-item active"><a class="page-link"><%= i %></a></li>
+              <% } else { %>
+                  <li class="page-item"><a class="page-link" href="/breweries?page=<%= i %><%if(search){%>&search=<%=search%><%}%>"><%= i %></a></li>
+              <% } %>
+            <% if (i == Number(current) + 4 && i < pages) { %>
+              <li class="page-item disabled"><a class="page-link">...</a></li>
+            <% } %>
+            <% } %>
+            <% if (current == pages) { %>
+            <li class="page-item disabled"><a class="page-link">»</a></li>
+            <% } else { %>
+            <li class="page-item"><a class="page-link" href="/breweries?page=<%= Number(current) + 1 %><%if(search){%>&search=<%=search%><%}%>">»</a></li>
+            <% } %>
+            <% if (current == pages) { %>
+            <li class="page-item disabled"><a class="page-link">Last</a></li>
+            <% } else { %>
+            <li class="page-item"><a class="page-link" href="/breweries?page=<%= pages %><%if(search){%>&search=<%=search%><%}%>">Last</a></li>
+            <% } %>
+        </ul>
+      <% } %>
+  </nav>
+
+<% include ../partials/footer %>

@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+
+<div class="row">
+	<div class="col-md-4">
+			<h1><%= user.firstName + " " + user.lastName %></h1>
+		<div class="thumbnail">
+			<img src="<%= user.avatar %>" alt="user profile image">
+			<div class="caption"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+		</div>
+		I am a dog and I do not drink beer!
+	</div>
+	<div class="col-md-8">
+		<h3><%= user.username %>'s breweries:</h3>
+		<ul>
+		<% breweries.forEach(function(brewery) { %>
+			<li><a href="/breweries/<%= brewery.id %>"><%= brewery.name %></a></li>
+		<% }); %>
+		</ul>
+	</div>
+</div>
+
+<% include ../partials/footer %>

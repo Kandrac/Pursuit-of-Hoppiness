@@ -1,0 +1,27 @@
+<% include ./partials/header %>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-signin" action="/register" method="POST">
+              <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+              <label for="inputUsername" class="sr-only">Username</label>
+              <input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required autofocus>
+               <label for="inputFirstname" class="sr-only">First Name</label>
+              <input type="text" id="inputFirstname" class="form-control" name="firstName" placeholder="First Name" required autofocus>
+               <label for="inputLastname" class="sr-only">Last Name</label>
+              <input type="text" id="inputLastname" class="form-control" name="lastName" placeholder="Last Name" required autofocus>
+               <label for="inputEamail" class="sr-only">Email</label>
+              <input type="email" id="inputEmail" class="form-control" name="email" placeholder="email" required autofocus>
+               <label for="inputAvatar" class="sr-only">Avatar</label>
+              <input type="text" id="inputAvatar" class="form-control" name="avatar" placeholder="avatar url" required autofocus>
+              
+              
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+            </form>
+            <div class="form-signin">
+                <a href="/breweries">Go Back</a>
+            </div>
+        </div>
+    </div>
+<% include ./partials/footer %>
