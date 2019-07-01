@@ -19,7 +19,7 @@ var geocoder = NodeGeocoder(options);
 
 //INDEX - show all breweries
 router.get("/", function(req, res){
-    var perPage = 2;
+    var perPage = 8;
     var pageQuery = parseInt(req.query.page);
     var pageNumber = pageQuery ? pageQuery : 1;
     var noMatch = null;
@@ -148,18 +148,11 @@ router.delete("/:id", middleware.checkBreweryOwnership, function (req, res) {
         if (err) {
             res.redirect("/breweries");
         } else {
-            // deletes all comments associated with the brewery
-            Comment.remove({"_id": {$in: brewery.comments}}, function (err) {
-                if (err) {
-                    console.log(err);
-                    return res.redirect("/breweries");
-                }
                     //  delete the brewery
                     brewery.remove();
                     req.flash("success", "Brewery deleted successfully!");
                     res.redirect("/breweries");
-                });
-            
+ 
         }
     });
 });
