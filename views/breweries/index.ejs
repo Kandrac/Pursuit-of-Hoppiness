@@ -6,7 +6,7 @@
              <h1><i class="fab fa-untappd"></i> Pursuit of Hoppiness!</h1>
              <p>  Breweries from all over the United States</p>
              <p>
-                <a class="btn btn-primary btn-lg" href="/breweries/new">Add New Brewery</a>
+                <a class="btn btn-dark btn-lg" href="/breweries/new">Add New Brewery</a>
              </p>
               <p>
               <form acttion="/breweries"method="GET"class="form-inline">
@@ -18,7 +18,8 @@
              </p>
          </div>
      </header>
-     
+   
+     <div class="page container">
    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% breweries.forEach(function(brewery){ %>
         <div class="col-md-3 col-sm-6">
@@ -37,7 +38,7 @@
                     <% } %>
                 </div>
                 <p>
-                    <a href="/breweries/<%= brewery._id %>" class="btn btn-primary">More Info</a>
+                    <a href="/breweries/<%= brewery._id %>" class="btn btn-dark">More Info</a>
                 </p>
             </div>
         </div>

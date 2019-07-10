@@ -2,9 +2,13 @@
 body{
     width: 100%;
     height: 100%;
+  
     
   }
+  .btn-secondary {
+    margin-left: 3pt;
   
+  }
   .form-signin {
       width: 100%;
       max-width: 330px;
@@ -18,6 +22,7 @@ body{
       height: auto;
       padding: 10px;
       font-size: 16px;
+      
     }
     
     .form-signin .form-control:focus {
@@ -30,7 +35,7 @@ body{
       border-bottom-left-radius: 0;
     }
     .form-signin input[type="password"] {
-      margin-bottom: 10px;
+   
       border-top-left-radius: 0;
       border-top-right-radius: 0;
     }
@@ -62,11 +67,16 @@ body{
     
     /* Thumbnail styles */
     .thumbnail img {
-        width: 100%;
+      height: 200px;
+      width: 200px;
     }
+    
     
     .thumbnail {
         padding: 0;
+        padding-top: 20px;
+        background:slategray;
+        
     }
     
     .thumbnail .caption-full {
@@ -86,13 +96,15 @@ body{
     
    .jumbotron{
       text-align: center;
+      width: 100%;
+      background: slategray;
     }
     .form-group{
       margin: left 20%;
     }
     
     body{
-      background-color: gainsboro;
+      background:#354751;
     }
     .form-group{
       margin-left: 38%;
@@ -100,7 +112,7 @@ body{
       
     }
   .well{
-    background: whitesmoke;
+    background: coral;
     padding-left: 10px;
       padding-right: 10px;
       margin: 20px 0;
@@ -110,4 +122,23 @@ body{
     }
     .checked {
       color: orange;
+  }
+  .card-img-top{
+    width: 400px;
+    height: 400px;
+    margin-left: 25%;
+  }
+  .btn-block {
+    margin-top: 5px;
+  }
+  .user-profile-image
+  {
+    width: 200px;
+  }
+  a {
+    color:orange;
+  }
+  .btn-info {
+    margin-left: 20px;
+    margin-right: 10px;
   }

@@ -3,7 +3,7 @@
   <div class="col-md-3">
     <div id="map"></div>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-8">
     <div class="card mb-3">
       <img class="card-img-top" src="<%= brewery.image %>" alt="<%= brewery.name %>">
       <div class="card-body">
@@ -14,7 +14,7 @@
         <hr>
         <p class="card-text"><%= brewery.description %></p>
         <% if(currentUser && brewery.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-        <a class="btn btn-warning" href="/breweries/<%= brewery._id %>/edit">Edit</a>
+        <a class="btn btn-info" href="/breweries/<%= brewery._id %>/edit">Edit</a>
         <form action="/breweries/<%= brewery._id %>?_method=DELETE" method="POST" class="delete-form">
           <button class="btn btn-danger">Delete</button>
         </form>
@@ -54,7 +54,8 @@
                                 <%= review.text %>
                             </p>
                             <% if(currentUser && review.author.id.equals(currentUser._id)|| currentUser && currentUser.isAdmin){ %>
-                            <a class="btn btn-xs btn-warning"
+                            </div>
+                            <a class="btn btn-xs btn-info"
                                href="/breweries/<%=brewery._id %>/reviews/<%=review._id %>/edit">Edit</a>
                             <form id="delete-form" action="/breweries/<%=brewery._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
                                 <input type="submit" class="btn btn-xs btn-danger" value="Delete">
