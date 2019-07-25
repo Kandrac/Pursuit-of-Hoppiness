@@ -14,7 +14,6 @@
         <hr>
         <p class="card-text"><%= brewery.description %></p>
         <% if(currentUser && brewery.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-        <a class="btn btn-info" href="/breweries/<%= brewery._id %>/edit">Edit</a>
         <form action="/breweries/<%= brewery._id %>?_method=DELETE" method="POST" class="delete-form">
           <button class="btn btn-danger">Delete</button>
         </form>
